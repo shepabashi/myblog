@@ -26,8 +26,8 @@ class CreatePostsTable extends Migration
                 'publish', 'pending', 'draft', 'private', 'static', 'future', 'require_password',
             ])->default('publish');
 
-            $table->string('post_password', 200);
-            $table->string('slug', 200)->unique();
+            $table->string('post_password', 200)->nullable();
+            $table->string('slug', 200)->unique()->nullable();
 
             $table->timestamps();
         });
