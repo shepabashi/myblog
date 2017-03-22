@@ -11,14 +11,14 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="user_login" class="col-md-4 control-label">User ID</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="user_login" type="text" class="form-control" name="user_login" value="{{ old('user_login') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('user_login'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('user_login') }}</strong>
                                     </span>
                                 @endif
                             </div>
