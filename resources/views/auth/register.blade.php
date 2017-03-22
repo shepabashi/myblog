@@ -10,15 +10,15 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('user_login') ? ' has-error' : '' }}">
+                            <label for="user_login" class="col-md-4 control-label">Login ID</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="user_login" type="text" class="form-control" name="user_login" value="{{ old('user_login') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('user_login'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('user_login') }}</strong>
                                     </span>
                                 @endif
                             </div>
