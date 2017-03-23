@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use phpDocumentor\Reflection\Types\String_;
+use cebe\markdown\GithubMarkdown;
 
 class Post extends Model
 {
@@ -31,6 +32,6 @@ class Post extends Model
     public function setContentFilteredAttribute($value)
     {
         $this->attributes['content_filtered'] = $value;
-        $this->attributes['content'] = $value;
+        $this->attributes['content'] = markdown($value);
     }
 }
