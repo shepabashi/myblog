@@ -11,15 +11,6 @@ class CreateMediaTable extends Migration
      *
      * @return void
      */
-
-    /**
-     * id bigIncrements
-    title text
-    path text
-    mime_type string 100
-    created_at timestamp
-    updated_at timestamp
-     */
     public function up()
     {
         Schema::create('media', function (Blueprint $table) {
