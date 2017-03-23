@@ -20,3 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('/post', 'PostController');
+
+Route::group(['prefix' => 'media'], function () {
+    Route::get('/', 'MediaController@index')->name('media.index');
+    Route::get('upload', 'MediaController@showUploadForm')->name('media.upload');
+    Route::post('upload', 'MediaController@upload');
+});
