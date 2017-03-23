@@ -15,7 +15,7 @@
                         <p><a href="{{ route('post.edit', $post) }}">編集</a></p>
                         <p><a href="" onclick="if(confirm('削除?')){ document.forms['delete{{ $post->id }}'].submit(); }return false;">削除</a></p>
                         {!! Form::model($post, ['route' => ['post.destroy', $post], 'method'=>'delete', 'name'=>"delete$post->id"]) !!}{!! Form::close() !!}
-                        <p class="panel-body">{{ $post->content }}</p>
+                        <p class="panel-body">{!! removeMarkup($post->content, null, 100) !!}</p>
                     </div>
                 @empty
                     <div class="panel">
