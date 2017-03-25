@@ -15,6 +15,9 @@
                         {!! Form::label('content_filtered', '記事の本文') !!}
                         {!! Form::textarea('content_filtered', old('content_filtered'), ['class'=>'form-control']) !!}
 
+                        {!! Form::label('slug') !!}
+                        {!! Form::text('slug', old('slug'), ['class'=>'form-control']) !!}
+
                         @if(count($errors) > 0)
                             <ul>
                                 @foreach($errors->all() as $error)

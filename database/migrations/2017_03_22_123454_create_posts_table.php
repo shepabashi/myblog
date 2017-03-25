@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
             ])->default('publish');
 
             $table->string('post_password', 200)->nullable();
-            $table->string('slug', 200)->unique()->nullable();
+            $table->string('slug', 200)->unique();
 
             $table->timestamps();
         });

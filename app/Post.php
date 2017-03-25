@@ -14,8 +14,20 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'content_filtered', 'content',
+        'title', 'content_filtered', 'content', 'slug',
     ];
+
+
+    /**
+     * Get the value of the model's route key.
+     *
+     * @return mixed
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
