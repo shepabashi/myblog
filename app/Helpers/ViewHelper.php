@@ -30,6 +30,7 @@ if(!function_exists('removeMarkup')) {
      */
     function removeMarkup($str, $allowable_tags="", $trim=0, $trim_str="...") {
         $value = strip_tags($str, $allowable_tags);
+        $value = str_replace(array("\r", "\n"), '', $value);
         if ($trim) {
             $value = mb_strimwidth($value, 0, $trim, $trim_str);
         }
