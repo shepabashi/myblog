@@ -26,6 +26,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required',
             'content_filtered' => 'required',
+            'slug' => 'required|unique:posts',
         ];
     }
 }
