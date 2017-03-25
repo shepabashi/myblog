@@ -26,3 +26,7 @@ Route::group(['prefix' => 'media'], function () {
     Route::get('upload', 'MediaController@showUploadForm')->name('media.upload');
     Route::post('upload', 'MediaController@upload');
 });
+
+Route::group(['prefix' => 'config'], function () {
+    Route::get('/', 'ConfigController@index');
+});
