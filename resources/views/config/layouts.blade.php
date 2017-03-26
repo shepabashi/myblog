@@ -10,7 +10,6 @@
     <!-- Styles -->
     {!! Html::style('css/normalize.css') !!}
     {!! Html::style('css/font-awesome.min.css') !!}
-    {{--{!! Html::style('css/styles.css') !!}--}}
     {!! Html::style('css/config.css') !!}
     @yield('stylesheet')
 
@@ -28,8 +27,8 @@
 
         <h2>記事</h2>
         <ul>
-            {!! autoActiveLink('/', '一覧', 'menu-selected') !!}
-            {!! autoActiveLink('/', '新規追加', 'menu-selected') !!}
+            {!! autoActiveLink('/config/posts', '一覧', 'menu-selected') !!}
+            {!! autoActiveLink('/config/post/create', '新規追加', 'menu-selected') !!}
             {!! autoActiveLink('/', 'カテゴリ', 'menu-selected') !!}
         </ul>
 
