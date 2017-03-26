@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/post', 'PostController');
+Route::resource('/post', 'PostController', ['except'=>'show']);
 
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'MediaController@index')->name('media.index');
@@ -30,3 +27,6 @@ Route::group(['prefix' => 'media'], function () {
 Route::group(['prefix' => 'config'], function () {
     Route::get('/', 'ConfigController@index');
 });
+
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/{post}', 'PostController@show')->name('post.show');

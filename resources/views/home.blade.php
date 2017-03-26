@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+    @forelse($posts as $post)
+        <article>
+            <h1 class="content-heading"><a href="{{ route('post.show', $post) }}">{{ $post->title }}</a></h1>
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
+            <p class="panel-body">{!! removeMarkup($post->content, null, 100) !!}</p>
+
+            <p><a href="{{ route('post.show', $post) }}" class="btn">続きを読む</a></p>
+
+        </article>
+    @empty
+        <div class="panel">
+            <h1 class="panel-heading">No Entry</h1>
+            <p class="panel-body">This blog has no entry.</p>
         </div>
-    </div>
-</div>
+    @endforelse
 @endsection
