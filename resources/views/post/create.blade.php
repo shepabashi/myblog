@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="edit-area">
-        <div class="panel-body">
             {!! Form::open(['route' => 'post.store']) !!}
 
             {!! Form::label('title', '記事のタイトル') !!}
@@ -23,7 +22,6 @@
             @endif
             {!! Form::submit('投稿する', ['class'=>'btn btn-default']) !!}
             {!! Form::close() !!}
-        </div>
     </div>
 
 @endsection
