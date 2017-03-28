@@ -31,11 +31,17 @@ Route::group(['prefix' => 'config'], function () {
     Route::get('posts', 'PostController@index')->name('post.index');
     Route::resource('post', 'PostController', ['except' => ['index', 'show']]);
 
+    /* Category Edit Routing */
+    Route::get('categories', 'CategoryController@index')->name('category.index');
+    Route::resource('category', 'CategoryController', ['except' => ['index', 'show']]);
 
 });
 
 /* Index Routing */
 Route::get('/', 'HomeController@index')->name('index');
+
+/* Category Routing*/
+Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
 
 /* Post Single Page Routing */
 Route::get('/{post}', 'PostController@show')->name('post.show');

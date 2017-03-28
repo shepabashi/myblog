@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>設定画面</title>
 
@@ -11,6 +12,8 @@
     {!! Html::style('css/normalize.css') !!}
     {!! Html::style('css/font-awesome.min.css') !!}
     {!! Html::style('css/config.css') !!}
+
+
     @yield('stylesheet')
 
 </head>
@@ -29,7 +32,7 @@
         <ul>
             {!! autoActiveLink('/config/posts', '一覧', 'menu-selected') !!}
             {!! autoActiveLink('/config/post/create', '新規追加', 'menu-selected') !!}
-            {!! autoActiveLink('/', 'カテゴリ', 'menu-selected') !!}
+            {!! autoActiveLink('/config/categories', 'カテゴリ', 'menu-selected') !!}
         </ul>
 
         <h2>メディア</h2>
@@ -52,6 +55,11 @@
 </div>
 
 <!-- Scripts -->
+<script>
+    window.Laravel = {!! json_encode([
+        'csrfToken' => csrf_token(),
+    ]) !!};
+</script>
 {!! Html::script('js/config.js') !!}
 @yield('scripts')
 </body>
