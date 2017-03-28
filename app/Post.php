@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use phpDocumentor\Reflection\Types\String_;
-use cebe\markdown\GithubMarkdown;
+use App\Category;
 
 class Post extends Model
 {
@@ -35,6 +34,36 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class)
+            ->withPivot('seq')->orderBy('pivot_seq');
+    }
+
+
+    /**
+     * @param array $category_names
+     * @return \Illuminate\Support\Collection
+     */
+    public function saveCategories($category_names)
+    {
+        $categories = collect();
+        foreach ($category_names as $name) {
+            $categories->push(Category::firstOrCreate(['name' => $name]));
+        }
+        $category_ids = $categories->pluck('id');
+        $this->categories()->detach();
+        for ($i = 0; $i < $categories->count(); $i++) {
+            $this->categories()->attach($categories[$i], ['seq' => $i]);
+        }
+
+        return $categories;
     }
 
 
