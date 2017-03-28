@@ -52,7 +52,7 @@
 </div>
 
 <!-- Scripts -->
-{!! Html::script('js/script.js') !!}
+{!! Html::script('js/config.js') !!}
 @yield('scripts')
 </body>
 </html>
