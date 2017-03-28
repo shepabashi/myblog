@@ -9,7 +9,7 @@ class Category extends Model
 {
 
     protected $fillable = [
-      'name',
+      'name', 'slug',
     ];
 
     /**
@@ -17,7 +17,6 @@ class Category extends Model
      */
     public function Posts()
     {
-        return $this->belongsToMany(Post::class)
-            ->withPivot('seq');
+        return $this->belongsToMany(Post::class);
     }
 }
