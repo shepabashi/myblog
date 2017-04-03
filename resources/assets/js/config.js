@@ -13,8 +13,8 @@
      */
 
     (function () {
-        var editForm = $('.edit-area').children().first();
-        var content = $('.edit-area textarea');
+        var editForm = $('.edit-area form');
+        var content = $(editForm).find('textarea');
 
         var autoFitContent = (function () {
             var editFormHeight = $(editForm).height();
@@ -31,7 +31,7 @@
         });
         $(window).resize(autoFitContent);
         autoFitContent();
-    });
+    })();
 
     /**
      * カテゴリの編集機能を追加
