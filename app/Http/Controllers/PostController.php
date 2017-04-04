@@ -78,8 +78,9 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         $post->fill($request->all());
-
         $post->save();
+
+        if($request->has('categories')) $post->saveCategories($request->input('categories'));
 
         return redirect()->route('post.index');
     }
