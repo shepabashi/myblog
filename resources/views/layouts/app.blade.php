@@ -19,7 +19,7 @@
 
 <header>
     <div class="container">
-        <h1 class="header-title">しぇぱっちのブログ</h1>
+        <div class="header-title">しぇぱっちのブログ</div>
         <nav>
             <i class="fa fa-bars header-mobile-menu" aria-hidden="true"></i>
             <ul class="header-pc-menu">
