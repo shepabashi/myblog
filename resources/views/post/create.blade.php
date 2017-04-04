@@ -3,7 +3,6 @@
 @section('content')
     <div class="edit-area">
             {!! Form::open(['route' => 'post.store']) !!}
-
             {!! Form::label('title', '記事のタイトル') !!}
             {!! Form::text('title', old('title'), ['class'=>'form-control']) !!}
 
@@ -13,7 +12,9 @@
             {!! Form::label('slug') !!}
             {!! Form::text('slug', old('slug'), ['class'=>'form-control']) !!}
 
-            @if(count($errors) > 0)
+            @include('post.edit_tool_bar')
+
+    @if(count($errors) > 0)
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>

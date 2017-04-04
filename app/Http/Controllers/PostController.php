@@ -41,6 +41,8 @@ class PostController extends Controller
         $post->user_id = auth()->id();
         $post->save();
 
+        if($request->has('categories')) $post->saveCategories($request->input('categories'));
+
         return redirect()->route('post.index');
     }
 
