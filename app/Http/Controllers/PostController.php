@@ -24,8 +24,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $this->authorize('create', Post::class);
         return view('post.create');
     }
 
@@ -37,6 +38,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        $this->authorize('create', Post::class);
         $post = new Post($request->all());
         $post->user_id = auth()->id();
         $post->save();
@@ -77,6 +79,7 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+        $this->authorize('update', $post);
         $post->fill($request->all());
         $post->save();
 
@@ -93,6 +96,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
         $post->delete($post);
         return redirect()->route('index');
     }
