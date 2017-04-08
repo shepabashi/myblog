@@ -15,7 +15,7 @@
 
 </head>
 <body>
-@include('layouts.control_bar')
+@include('layouts.admin_bar')
 
 <header>
     <div class="container">
