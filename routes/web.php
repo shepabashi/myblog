@@ -13,6 +13,7 @@
 
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->middleware('auth');
 
 Route::get('/home', 'HomeController@index');
 
@@ -24,7 +25,7 @@ Route::group(['prefix' => 'media'], function () {
 });
 
 /* Config Routing */
-Route::group(['prefix' => 'config'], function () {
+Route::group(['prefix' => 'config', 'middleware' => 'auth'], function () {
     Route::get('/', 'ConfigController@index');
 
     /* Post Edit Routing */
@@ -34,7 +35,6 @@ Route::group(['prefix' => 'config'], function () {
     /* Category Edit Routing */
     Route::get('categories', 'CategoryController@index')->name('category.index');
     Route::resource('category', 'CategoryController', ['except' => ['index', 'show']]);
-
 });
 
 /* Index Routing */
