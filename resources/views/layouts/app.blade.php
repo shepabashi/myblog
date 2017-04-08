@@ -19,7 +19,7 @@
 
 <header>
     <div class="container">
-        <div class="header-title">しぇぱっちのブログ</div>
+        <div class="header-title">{{ option('blog_name', 'ブログ名') }}</div>
         <nav>
             <i class="fa fa-bars header-mobile-menu" aria-hidden="true"></i>
             <ul class="header-pc-menu">

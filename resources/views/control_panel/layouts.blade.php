@@ -43,7 +43,7 @@
 
         <h2>設定</h2>
         <ul>
-            {!! autoActiveLink('/', 'ブログの情報', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/blog-info', 'ブログの情報', 'menu-selected') !!}
             {!! autoActiveLink('/', '表示設定', 'menu-selected') !!}
             {!! autoActiveLink('/', 'プライバシー', 'menu-selected') !!}
         </ul>
