@@ -12,6 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/script.js', 'public/js')
-   .js('resources/assets/js/control_panel.js', 'public/js')
+   .js('resources/assets/js/control-panel.js', 'public/js')
    .sass('resources/assets/sass/styles.scss', 'public/css')
-   .sass('resources/assets/sass/control_panel.scss', 'public/css');
+   .sass('resources/assets/sass/control-panel.scss', 'public/css');
