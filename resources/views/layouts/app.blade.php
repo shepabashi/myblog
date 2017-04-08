@@ -19,7 +19,9 @@
 
 <header>
     <div class="container">
-        <div class="header-title">{{ option('blog_name', 'ブログ名') }}</div>
+        <div class="header-title">
+            <a href="{{ route('index') }}">{{ option('blog_name', 'ブログ名') }}</a>
+        </div>
         <nav>
             <i class="fa fa-bars header-mobile-menu" aria-hidden="true"></i>
             <ul class="header-pc-menu">
