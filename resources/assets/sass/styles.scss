@@ -3,11 +3,25 @@
 $sep_mobile: 920px;
 
 /* auth */
-#control-bar {
+#admin-bar {
   background: lightblue;
   padding: 10px;
   text-align: center;
-  display: none;
+  overflow: hidden;
+
+  .pull-right {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  a + a {
+    border-left: 1px solid #000;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
 }
 
 /* common */
