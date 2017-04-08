@@ -54,6 +54,13 @@
         $(close_btn).click(close_panels);
 
         // カテゴリ
+        var removeCategory = function() {
+            $('[name=categories\\[\\]][value=' + $(this).text() + ']').remove();
+            $(this).remove();
+            debugger;
+        };
+        $(edit_category_panel).find('.categories li').click(removeCategory);
+
         var edit_category_btn_click = function () {
             var category_input_box = $('#category_input_box');
 
@@ -72,10 +79,7 @@
 
                     var el = $('<li>').text(category_name);
                     $(categories).append(el);
-                    $(el).click(function () {
-                        $('[name=categories\\[\\]][value=' + $(this).text() + ']').remove();
-                        $(this).remove();
-                    });
+                    $(el).click(removeCategory);
 
                     var el2 = $('<input>').attr({type: 'hidden', name: 'categories[]', value: category_name});
                     $('form').append(el2);
@@ -86,8 +90,6 @@
             });
         };
         $(edit_category_btn).click(edit_category_btn_click);
-
-
     })();
 
 
