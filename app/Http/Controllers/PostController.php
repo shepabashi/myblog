@@ -43,7 +43,7 @@ class PostController extends Controller
 
         if($request->has('categories')) $post->saveCategories($request->input('categories'));
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.show', $post);
     }
 
     /**
@@ -82,7 +82,7 @@ class PostController extends Controller
 
         if($request->has('categories')) $post->saveCategories($request->input('categories'));
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.show', $post);
     }
 
     /**
@@ -94,6 +94,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete($post);
-        return redirect()->route('post.index');
+        return redirect()->route('index');
     }
 }
