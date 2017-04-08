@@ -14,7 +14,6 @@
             <p class="panel-body">{!! removeMarkup($post->content, null, 100) !!}</p>
 
             <p><a href="{{ route('post.show', $post) }}" class="btn">続きを読む</a></p>
-
         </article>
     @empty
         <div class="panel">
@@ -22,4 +21,7 @@
             <p class="panel-body">This blog has no entry.</p>
         </div>
     @endforelse
+
+    {{ $posts->render() }}
+
 @endsection
