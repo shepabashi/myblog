@@ -35,6 +35,10 @@ Route::group(['prefix' => 'control-panel', 'middleware' => 'auth'], function () 
     /* Category Edit Routing */
     Route::get('categories', 'CategoryController@index')->name('category.index');
     Route::resource('category', 'CategoryController', ['except' => ['index', 'show']]);
+
+    /* Blog Info */
+    Route::get('blog-info', 'ControlPanel@showBlogInfo')->name('control-panel.blog-info');
+    Route::post('blog-info', 'ControlPanel@updateBlogInfo');
 });
 
 /* Index Routing */
