@@ -35,7 +35,7 @@
 
 
     /**
-     * 記事編集での編集機能
+     * 記事編集でのカテゴリ編集機能
      */
     (function () {
 
@@ -54,7 +54,7 @@
         $(close_btn).click(close_panels);
 
         // カテゴリ
-        var removeCategory = function() {
+        var removeCategory = function () {
             $('[name=categories\\[\\]][value=' + $(this).text() + ']').remove();
             $(this).remove();
             debugger;
@@ -109,6 +109,8 @@
                 var name = $(name_el).text()
                 var slug = $(slug_el).text()
 
+                if (slug === '--') slug = '';
+
                 var template_el = $('<input>').attr({
                     'type': 'text',
                 }).css({
@@ -129,7 +131,7 @@
 
                 $(row).find('input').keyup(function (e) {
                     if (e.keyCode === 13) {
-                        $.post('/config/category/' + $(row).attr('data'), {
+                        $.post('/control-panel/category/' + $(row).attr('data'), {
                             '_method': 'patch',
                             'name': name_inp.val(),
                             'slug': slug_inp.val(),
@@ -148,8 +150,6 @@
                 return false;
             });
         });
-
     })();
-
 
 })();
