@@ -22,6 +22,8 @@
         </div>
     @endforelse
 
-    {{ $posts->render() }}
+    @if(isset($post->render))
+        {{ $posts->render() }}
+    @endif
 
 @endsection
