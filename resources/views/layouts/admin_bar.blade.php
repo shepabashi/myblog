@@ -10,7 +10,7 @@
     </div>
     <div class="pull-right">
         <a href="{{ route('post.create') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> 記事作成</a>
-        <a href="{{ route('config.root') }}"><i class="fa fa-cog" aria-hidden="true"></i> 管理</a>
+        <a href="{{ route('control-panel.root') }}"><i class="fa fa-cog" aria-hidden="true"></i> 管理</a>
         <a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト</a>
     </div>
 </div>

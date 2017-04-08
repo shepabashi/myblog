@@ -25,8 +25,8 @@ Route::group(['prefix' => 'media'], function () {
 });
 
 /* Config Routing */
-Route::group(['prefix' => 'config', 'middleware' => 'auth'], function () {
-    Route::get('/', 'ConfigController@index')->name('config.root');
+Route::group(['prefix' => 'control-panel', 'middleware' => 'auth'], function () {
+    Route::get('/', 'ControlPanel@index')->name('control-panel.root');
 
     /* Post Edit Routing */
     Route::get('posts', 'PostController@index')->name('post.index');

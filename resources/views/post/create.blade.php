@@ -1,4 +1,4 @@
-@extends('config.layouts')
+@extends('control_panel.layouts')
 
 @section('content')
     <div class="edit-area">

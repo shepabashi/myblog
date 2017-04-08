@@ -11,7 +11,7 @@
     <!-- Styles -->
     {!! Html::style('css/normalize.css') !!}
     {!! Html::style('css/font-awesome.min.css') !!}
-    {!! Html::style('css/config.css') !!}
+    {!! Html::style('css/control-panel.css') !!}
 
 
     @yield('stylesheet')
@@ -25,14 +25,14 @@
     <section class="menu">
         <h2>管理画面</h2>
         <ul>
-            {!! autoActiveLink('/config', 'ホーム', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel', 'ホーム', 'menu-selected') !!}
         </ul>
 
         <h2>記事</h2>
         <ul>
-            {!! autoActiveLink('/config/posts', '一覧', 'menu-selected') !!}
-            {!! autoActiveLink('/config/post/create', '新規追加', 'menu-selected') !!}
-            {!! autoActiveLink('/config/categories', 'カテゴリ', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/posts', '一覧', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/post/create', '新規追加', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/categories', 'カテゴリ', 'menu-selected') !!}
         </ul>
 
         <h2>メディア</h2>
@@ -60,7 +60,7 @@
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
-{!! Html::script('js/config.js') !!}
+{!! Html::script('js/control-panel.js') !!}
 @yield('scripts')
 </body>
 </html>
