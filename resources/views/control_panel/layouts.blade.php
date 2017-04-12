@@ -37,8 +37,8 @@
 
         <h2>メディア</h2>
         <ul>
-            {!! autoActiveLink('/', 'アップロード', 'menu-selected') !!}
-            {!! autoActiveLink('/', 'メディア一覧', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/media/upload', 'アップロード', 'menu-selected') !!}
+            {!! autoActiveLink('/control-panel/media', 'メディア一覧', 'menu-selected') !!}
         </ul>
 
         <h2>設定</h2>
