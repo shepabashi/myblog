@@ -55,14 +55,13 @@ class Post extends Model
     {
         $categories = collect();
         foreach ($category_names as $name) {
-            $categories->push(Category::firstOrCreate(['name' => $name]));
+            $category = Category::where('name', $name)->first() ?: Category::create(['name' => $name, 'slug' => $name]);
+            $categories->push($category);
         }
-        $category_ids = $categories->pluck('id');
         $this->categories()->detach();
         for ($i = 0; $i < $categories->count(); $i++) {
             $this->categories()->attach($categories[$i], ['seq' => $i]);
         }
-
         return $categories;
     }
 
