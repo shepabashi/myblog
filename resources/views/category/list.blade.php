@@ -13,7 +13,7 @@
                     <th>updated_at</th>
                 </tr>
                 @foreach($categories as $category)
-                    <tr data="{{ $category->id }}">
+                    <tr data="{{ $category->slug }}">
                         <td>{{ $category->id }}</td>
                         <td class="edit-item">
                             <a href="{{ route('category.show', $category) }}" class="btn">一覧</a>

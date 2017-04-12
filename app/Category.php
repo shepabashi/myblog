@@ -9,8 +9,19 @@ class Category extends Model
 {
 
     protected $fillable = [
-      'name', 'slug',
+        'name', 'slug',
     ];
+
+    /**
+     * Get the value of the model's route key.
+     *
+     * @return mixed
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
