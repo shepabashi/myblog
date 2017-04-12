@@ -39,6 +39,12 @@ Route::group(['prefix' => 'control-panel', 'middleware' => 'auth'], function () 
     /* Blog Info */
     Route::get('blog-info', 'ControlPanel@showBlogInfo')->name('control-panel.blog-info');
     Route::post('blog-info', 'ControlPanel@updateBlogInfo');
+
+    /* Media */
+    Route::get('media', 'MediaController@index')->name('media.index');
+    Route::get('media/upload', 'MediaController@showUploadForm')->name('media.upload');
+    Route::post('media/upload', 'MediaController@upload');
+
 });
 
 /* Index Routing */
