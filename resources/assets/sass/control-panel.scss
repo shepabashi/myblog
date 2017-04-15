@@ -138,6 +138,13 @@ header {
     width: 98%;
   }
 
+  input[type=checkbox] {
+    display: inline-block;
+    width: auto;
+    line-height: 1em;
+    margin-right: 10px;
+  }
+
 }
 
 /* Tool Bars */
@@ -201,5 +208,20 @@ header {
 }
 
 #edit-category-panel.hidden {
+  transform: translate(0, -500px);
+}
+
+#insert-link-panel {
+  width: 540px;
+  background: #fff;
+  z-index: 2;
+  top: 40px;
+  right: 0;
+  left: 0;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+#insert-link-panel.hidden {
   transform: translate(0, -500px);
 }

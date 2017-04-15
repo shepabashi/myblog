@@ -35,7 +35,7 @@
 
 
     /**
-     * 記事編集でのカテゴリ編集機能
+     * 記事編集画面でのパネルの設定
      */
     (function () {
 
@@ -44,11 +44,14 @@
 
         var edit_category_btn = $('#edit-category-btn');
         var edit_category_panel = $('#edit-category-panel');
+        var insert_link_btn = $('#insert-link-btn');
+        var insert_link_panel = $('#insert-link-panel');
 
         // 閉じる
         var close_panels = function () {
             $(mask).addClass('hidden');
             $(edit_category_panel).addClass('hidden');
+            $(insert_link_panel).addClass('hidden');
         };
         $(mask).click(close_panels);
         $(close_btn).click(close_panels);
@@ -57,7 +60,6 @@
         var removeCategory = function () {
             $('[name=categories\\[\\]][value=' + $(this).text() + ']').remove();
             $(this).remove();
-            debugger;
         };
         $(edit_category_panel).find('.categories li').click(removeCategory);
 
@@ -90,6 +92,55 @@
             });
         };
         $(edit_category_btn).click(edit_category_btn_click);
+
+
+        // textarea に挿入
+        var textarea = $('textarea');
+        var pos = 0;
+
+        $(textarea).on('click keyup', function () {
+            this.focus();
+            pos = this.selectionStart;
+        });
+
+        var insert = function (str) {
+            if (typeof str !== 'string') return;
+
+            var val = textarea.val();
+
+            if (pos - 1 >= 0 && val[pos - 1] !== '\n')
+                str = "\n" + str;
+            if (val[pos] !== '\n')
+                str += "\n";
+
+            textarea.val(val.substr(0, pos) + str + val.substr(pos));
+        };
+
+        // リンク
+        var insert_link_btn_click = function () {
+
+            var title = $('#insert_link_title'),
+                url = $('#insert_link_url');
+
+            $(insert_link_panel).removeClass('hidden');
+
+            var insertLinkTag = function (e) {
+                if (e.keyCode === 13) {
+                    if ("" === $(title).val() || "" === $(url).val()) return false;
+                    insert('[' + title.val() + '](' + url.val() + ')');
+                    $(title).val('');
+                    $(url).val('');
+                    $(insert_link_panel).addClass('hidden');
+                    return false;
+                }
+                return true;
+            };
+
+            $(title).keypress(insertLinkTag);
+            $(url).keypress(insertLinkTag);
+
+        };
+        $(insert_link_btn).click(insert_link_btn_click);
     })();
 
 
