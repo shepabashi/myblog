@@ -118,16 +118,24 @@
 
         // リンク
         var insert_link_btn_click = function () {
+            var autoToggle = true;
 
             var title = $('#insert_link_title'),
-                url = $('#insert_link_url');
+                url = $('#insert_link_url'),
+                is_blank = $('#is_blank');
 
             $(insert_link_panel).removeClass('hidden');
 
             var insertLinkTag = function (e) {
                 if (e.keyCode === 13) {
                     if ("" === $(title).val() || "" === $(url).val()) return false;
-                    insert('[' + title.val() + '](' + url.val() + ')');
+
+                    debugger;
+                    if ($(is_blank).is(':checked'))
+                        insert('<a href="' + $(url).val() + '" target="_blank">' + $(title).val() + '</a>');
+                    else
+                        insert('[' + title.val() + '](' + url.val() + ')');
+
                     $(title).val('');
                     $(url).val('');
                     $(insert_link_panel).addClass('hidden');
@@ -136,8 +144,24 @@
                 return true;
             };
 
+            $(url).keyup(function () {
+                var str = $(this).val();
+                if (autoToggle) {
+                    if (str.match(/^https?:\/\//))
+                        $(is_blank).prop('checked', true);
+                    else
+                        $(is_blank).prop('checked', false);
+                }
+            });
+
+            $(is_blank).click(function () {
+                autoToggle = false;
+            });
+
             $(title).keypress(insertLinkTag);
             $(url).keypress(insertLinkTag);
+            $(is_blank).prop('checked', false);
+
 
         };
         $(insert_link_btn).click(insert_link_btn_click);
